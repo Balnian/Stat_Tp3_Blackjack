@@ -9,11 +9,16 @@ class Jeu : public Drawable
 {
 	Texture backgroundImg;
 	MainMenu Menu;
+	enum State {MainMenu, AiSetUp, Play, PauseMenu, Quit};
+	State state;
+	enum NbAi {Un, Deux};
+	NbAi nbAi;
 public:
 	RectangleShape background;
 	Jeu();
 	~Jeu();
-	void UpdateState(Vector2i Cursor);
+	void UpdateState(Window &window);
 	virtual void draw(RenderTarget& target, RenderStates states) const;
+	bool IsAlive();
 };
 

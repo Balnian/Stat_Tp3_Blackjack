@@ -5,23 +5,19 @@ using namespace sf;
 int main()
 {
 	Jeu BlackJack;
-	RenderWindow window(VideoMode(1200, 700), "SFML works!");
+	RenderWindow window(VideoMode(1200, 700), "BlackJack",Style::Titlebar | Style::Close);
 
-	while (window.isOpen())
+	while (window.isOpen() && BlackJack.IsAlive())
 	{
-		Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == Event::Closed)
-				window.close();
-			
-			BlackJack.UpdateState(Mouse::getPosition(window));
-		}
+		
+		
+		BlackJack.UpdateState(window);
+		
 
 		window.clear();
 		window.draw(BlackJack);
 		window.display();
 	}
-
+	window.close();
 	return 0;
 }
