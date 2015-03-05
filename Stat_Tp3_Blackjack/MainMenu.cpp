@@ -4,21 +4,7 @@
 MainMenu::MainMenu()
 {
 	state = None;
-	Tex_JVsJ.loadFromFile("Images/Menu/J_VS_J.png");
-	Tex_JVsJ_Selected.loadFromFile("Images/Menu/J_VS_J_Selected.png");
-	Tex_JVsAi.loadFromFile("Images/Menu/J_VS_AI.png");
-	Tex_JVsAi_Selected.loadFromFile("Images/Menu/J_VS_AI_Selected.png");
-	Tex_AiVsAi.loadFromFile("Images/Menu/AI_VS_AI.png");
-	Tex_AiVsAi_Selected.loadFromFile("Images/Menu/AI_VS_AI_Selected.png");
-
-	Bt_JVsJ.setPosition(Vector2f(288, 75));
-	Bt_JVsJ.setSize(Vector2f(624, 139));
-
-	Bt_JVsAi.setPosition(Vector2f(288, 100 + 139));
-	Bt_JVsAi.setSize(Vector2f(624, 139));
-
-	Bt_AiVsAi.setPosition(Vector2f(288, 125+139*2));
-	Bt_AiVsAi.setSize(Vector2f(624, 139));
+	
 }
 
 
@@ -79,4 +65,24 @@ void MainMenu::draw(RenderTarget& target, RenderStates states) const
 	target.draw(Bt_JVsAi);
 	target.draw(Bt_AiVsAi);
 
+}
+
+void MainMenu::loadResource()
+{
+	Tex_JVsJ.loadFromFile("Images/Menu/J_VS_J.png");
+	Tex_JVsJ_Selected.loadFromFile("Images/Menu/J_VS_J_Selected.png");
+	Tex_JVsAi.loadFromFile("Images/Menu/J_VS_AI.png");
+	Tex_JVsAi_Selected.loadFromFile("Images/Menu/J_VS_AI_Selected.png");
+	Tex_AiVsAi.loadFromFile("Images/Menu/AI_VS_AI.png");
+	Tex_AiVsAi_Selected.loadFromFile("Images/Menu/AI_VS_AI_Selected.png");
+
+	Bt_JVsJ.setPosition(Vector2f(288, 75));
+	Bt_JVsJ.setSize(Vector2f(624, 139));
+
+	Bt_JVsAi.setPosition(Vector2f(288, 100 + 139));
+	Bt_JVsAi.setSize(Vector2f(624, 139));
+
+	Bt_AiVsAi.setPosition(Vector2f(288, 125 + 139 * 2));
+	Bt_AiVsAi.setSize(Vector2f(624, 139));
+	
 }

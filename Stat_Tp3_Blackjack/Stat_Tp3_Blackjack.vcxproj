@@ -85,10 +85,12 @@
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="MenuPause.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="MenuPause.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

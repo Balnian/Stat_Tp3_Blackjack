@@ -28,6 +28,7 @@ public:
 	~MainMenu();
 	void UpdateState(Vector2i Cursor);
 	virtual void draw(RenderTarget& target, RenderStates states) const;
+	void loadResource();
 	
 
 };
