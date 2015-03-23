@@ -44,11 +44,28 @@ JeuDeCarte::~JeuDeCarte()
 
 void JeuDeCarte::loadResource()
 {
-	srand(time(NULL));
+	
 	for each (ValeurCarte val in Valeurs)
 	{
 		Paquet.emplace_back(val.Value);
 		Paquet.back().loadFromFile(val.Path);
+	}
+	random_shuffle(Paquet.begin(), Paquet.end());
+}
+
+Carte* JeuDeCarte::piger()
+{
+	srand(time(NULL));
+	int piger;
+	while (Paquet.at(piger=(rand() % 52)).piger());
+	return &Paquet.at(piger);
+}
+
+void JeuDeCarte::reinitialize()
+{
+	for each (Carte item in Paquet)
+	{
+		item.
 	}
 	random_shuffle(Paquet.begin(), Paquet.end());
 }

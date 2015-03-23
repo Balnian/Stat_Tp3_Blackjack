@@ -27,8 +27,9 @@ public:
 	
 	Carte(vector<int> Value);
 	~Carte();
-	int getValue();
+	int getValue(int index=0);
 	bool piger();
+	void reinitialize();
 
 };
 
