@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Carte.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="JeuDeCarte.cpp" />
     <ClCompile Include="Joueur.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="MenuPause.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Carte.h" />
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="JeuDeCarte.h" />
     <ClInclude Include="Joueur.h" />
