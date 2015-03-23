@@ -59,7 +59,7 @@ bool JoueurIA::ComptePasCarte()
 		else //les probabiliter son simplement les 4 as
 		   probability = 4 / 52;
        // met les probabiliter en pourcentage avant de verifier si il est  > ou < ou = au pourcentage pour piger
-		if ((probability * 100) >= pourcentageForPlay)
+		if ((100 - (probability * 100)) <= pourcentageForPlay)
 			return true;
 		
 		return false;
