@@ -83,7 +83,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Carte.cpp" />
-    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="JeuDeCarte.cpp" />
     <ClCompile Include="Joueur.cpp" />
@@ -93,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Carte.h" />
-    <ClInclude Include="Deck.h" />
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="JeuDeCarte.h" />
     <ClInclude Include="Joueur.h" />

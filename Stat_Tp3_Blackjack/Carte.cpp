@@ -1,7 +1,7 @@
 #include "Carte.h"
 
 
-Carte::Carte(int Value) :Value(Value)
+Carte::Carte(int Value) :Value(Value),Piger(false)
 {
 }
 
@@ -10,7 +10,13 @@ Carte::~Carte()
 {
 }
 
-int Carte::getValue()
+//int Carte::getValue()
+//{
+//	return Value;
+//}
+
+// retourne si la carte à déjà été piger ou non et si elle n'a pas été piger on la met à l'état piger
+bool Carte::piger()
 {
-	return Value;
+	return Piger ? Piger : !(Piger = true);
 }

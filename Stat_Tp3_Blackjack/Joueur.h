@@ -7,7 +7,7 @@ public:
 	Joueur();
 	~Joueur();
 private:
-	JeuDeCarte jeu;
+	JeuDeCarte* jeu;
      
 
 };

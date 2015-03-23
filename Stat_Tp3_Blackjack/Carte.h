@@ -1,17 +1,34 @@
 #pragma once
 
+#include <vector>
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
+using namespace std;
+
+struct ValeurCarte
+{
+	String Path;
+	vector<int> Value;
+	ValeurCarte(String path, vector<int> value)
+	{
+		Path = path;
+		Value = value;
+	}
+	
+
+};
 
 class Carte : public Texture
 {
-int Value;
+vector<int> Value;
+bool Piger;
 public:
 	
 	Carte(int Value);
 	~Carte();
 	int getValue();
+	bool piger();
 
 };
 

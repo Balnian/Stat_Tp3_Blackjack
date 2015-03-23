@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Jeu.h"
+/*a supprimer*/#include "JeuDeCarte.h"
 using namespace sf;
 
 int main()
@@ -36,5 +37,6 @@ int main()
 	//	window.display();
 	//}
 	//window.close();
+	JeuDeCarte jdc;
 	return 0;
 }
