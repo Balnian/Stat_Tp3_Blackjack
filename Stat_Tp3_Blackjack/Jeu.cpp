@@ -100,9 +100,6 @@ void Jeu::UpdateState(Window &window)
 
 		if (event.type == Event::Closed)
 			state = Quit;
-
-
-
 	}
 
 }
@@ -147,9 +144,7 @@ bool Jeu::IsAlive()
 }
 
 void Jeu::LoadResources()
-{
-	
+{	
 	Menu.loadResource();
-	state = MainMenu;
-	
+	state = MainMenu;	
 }
