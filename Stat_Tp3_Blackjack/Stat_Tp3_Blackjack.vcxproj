@@ -86,6 +86,8 @@
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="JeuDeCarte.cpp" />
     <ClCompile Include="Joueur.cpp" />
+    <ClCompile Include="JoueurHumain.cpp" />
+    <ClCompile Include="JoueurIA.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MenuPause.cpp" />
@@ -95,6 +97,8 @@
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="JeuDeCarte.h" />
     <ClInclude Include="Joueur.h" />
+    <ClInclude Include="JoueurHumain.h" />
+    <ClInclude Include="JoueurIA.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MenuPause.h" />
   </ItemGroup>
