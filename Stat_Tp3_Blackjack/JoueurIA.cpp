@@ -48,7 +48,7 @@ void JoueurIA::ComptePasCarte()
 		jeu->piger();
 	else
 	{
-		minValue = 21 - GetCompte();
+		minValue = 22 - GetCompte();
 
 		if (minValue != 1 && minValue != 11) //Si les valeur minimale pour depasser son 1 ou 11 il ne reste que la possibiliter de piger un as
 		while ( minValue != 10 && i != 3)
