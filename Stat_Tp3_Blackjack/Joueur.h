@@ -15,8 +15,8 @@ public:
 	void AddCard(Carte card);
 	bool Busted();
 	virtual void draw(RenderTarget& target, RenderStates states) const;
-private:
-	JeuDeCarte jeu;
+protected:
+	JeuDeCarte* jeu;
 	vector<Carte> cartePiger;
 	int Compte;
 
