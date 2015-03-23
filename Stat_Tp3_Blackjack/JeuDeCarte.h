@@ -8,13 +8,14 @@
 using namespace std;
 using namespace sf;
 
-class JeuDeCarte: public Drawable
+class JeuDeCarte
 {
 	vector < Carte > Paquet;
 	vector<ValeurCarte> Valeurs;
 public:
 	JeuDeCarte();
 	~JeuDeCarte();
-	virtual void draw(RenderTarget& target, RenderStates states) const;
+
+	void loadResource();
 };
 

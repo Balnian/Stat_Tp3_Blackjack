@@ -25,7 +25,7 @@ vector<int> Value;
 bool Piger;
 public:
 	
-	Carte(int Value);
+	Carte(vector<int> Value);
 	~Carte();
 	int getValue();
 	bool piger();

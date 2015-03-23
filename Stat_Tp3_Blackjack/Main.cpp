@@ -38,5 +38,7 @@ int main()
 	//}
 	//window.close();
 	JeuDeCarte jdc;
+	jdc.loadResource();
+	std::printf("fn");
 	return 0;
 }

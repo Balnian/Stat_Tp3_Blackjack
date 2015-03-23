@@ -1,7 +1,7 @@
 #include "Carte.h"
 
 
-Carte::Carte(int Value) :Value(Value),Piger(false)
+Carte::Carte(vector<int>  Value) :Value(Value), Piger(false)
 {
 }
 
