@@ -53,13 +53,13 @@ bool JoueurIA::ComptePasCarte()
 		if (minValue != 11) //Si les valeur minimale pour depasser est 11 il ne reste que la possibiliter de piger un as
 		while ( minValue != 13)
 		{												
-			probability += (4 / 52);
+			probability += 4;
 			minValue++;
 		}
 		else //les probabiliter son simplement les 4 as
-		   probability = 4 / 52;
+		   probability = 4;
        // met les probabiliter en pourcentage avant de verifier si il est  > ou < ou = au pourcentage pour piger
-		if ((100 - (probability * 100)) >= pourcentageForPlay)
+		if ((100 - ((probability/ 52) * 100)) >= pourcentageForPlay)
 			return true;
 		
 		return false;
