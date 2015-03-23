@@ -62,6 +62,7 @@ void Jeu::UpdateState(Window &window)
 		case Jeu::AiSetUp:
 			break;
 		case Jeu::Play:
+			Partie.UpdateState(Mouse::getPosition(window));
 			break;
 		case Jeu::PauseMenu:
 			Pause.UpdateState(Mouse::getPosition(window));
@@ -73,6 +74,8 @@ void Jeu::UpdateState(Window &window)
 			{
 				state = Quit;
 			}
+			break;
+		case ResultatPartie:
 			break;
 		case Jeu::Quit:
 			
@@ -86,9 +89,14 @@ void Jeu::UpdateState(Window &window)
 			if (noRepeat)
 			{
 				if (state == PauseMenu)
-					state = Play;
+				{
+					state = Pause.getLastState();
+				}
 				else
+				{
+					Pause.setLastState(state);
 					state = PauseMenu;
+				}
 				noRepeat = false;
 			}
 
@@ -119,9 +127,25 @@ void Jeu::draw(RenderTarget& target, RenderStates states) const
 	case Jeu::AiSetUp:
 		break;
 	case Jeu::Play:
+		target.draw(Partie);
 		break;
 	case Jeu::PauseMenu:
-		target.draw(Menu);
+		switch (Pause.getLastState())
+		{
+		case Jeu::Loading:
+			target.draw(spinner);
+			break;
+		case Jeu::MainMenu:
+			target.draw(Menu);
+			break;
+		case Jeu::AiSetUp:
+			break;
+		case Jeu::Play:
+			target.draw(Partie);
+			break;
+		default:
+			break;
+		}
 				
 		target.draw(Pause);
 		break;
@@ -146,5 +170,6 @@ bool Jeu::IsAlive()
 void Jeu::LoadResources()
 {	
 	Menu.loadResource();
+	Partie.loadResource();
 	state = MainMenu;	
 }

@@ -48,3 +48,12 @@ void MenuPause::loadResource()
 {
 
 }
+
+void MenuPause::setLastState(Jeu::State State)
+{
+	LastState = State;
+}
+Jeu::State MenuPause::getLastState()const
+{
+	return LastState;
+}

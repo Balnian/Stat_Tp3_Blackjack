@@ -8,23 +8,37 @@ Joueur::Joueur()
 Joueur::~Joueur()
 {
 }
-//Reinitialise Les carte piger du joueur pour une nouvelle partie
+
 void Joueur::reinitialize()
 {
 }
 
 int  Joueur::GetCompte()
 {
-
+	int compte=0;
+	for each (Carte carte in cartePiger)
+	{
+		if (carte.getValue(1) + compte > 21)
+			compte += carte.getValue(1);
+		else
+			compte += carte.getValue();
+	}
+	return compte;
 }
-//Ajoute la valeur de la nouvelle carte au compte Actuelle
+
 void  Joueur::AddCard(Carte card)
 {
-	//Compte = GetCompte() + card.getValue();
+	cartePiger.push_back(card);
+	Compte = GetCompte() + card.getValue();
 }
-//Methode qui verifie si le compte A depasser 21
 bool Joueur::Busted()
 {
 
 
+}
+
+void Joueur::draw(RenderTarget& target, RenderStates states) const
+{
+
+	//target.draw(Overlay);
 }

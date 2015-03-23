@@ -10,6 +10,7 @@ class Partie : public Drawable
 public:
 	Partie();
 	~Partie();
+	void UpdateState(Vector2i Cursor);
 	virtual void draw(RenderTarget& target, RenderStates states) const;
 	void loadResource();
 };

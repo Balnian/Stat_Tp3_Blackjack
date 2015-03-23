@@ -10,6 +10,11 @@ Partie::~Partie()
 {
 }
 
+void Partie::UpdateState(Vector2i Cursor)
+{
+
+}
+
 void Partie::draw(RenderTarget& target, RenderStates states) const
 {
 
