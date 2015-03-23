@@ -3,11 +3,13 @@
 #include <SFML/Graphics.hpp>
 #include "MainMenu.h"
 #include "MenuPause.h"
+#include "Partie.h"
 
 using namespace sf;
 
 class Jeu : public Drawable
 {
+
 	//Texture / Resources
 	Texture backgroundImg;
 	Texture spinnerImg;
@@ -16,8 +18,11 @@ class Jeu : public Drawable
 	//Object State
 	MainMenu Menu;
 	MenuPause Pause;
+	Partie Partie;
 	//State
-	enum State {Loading, MainMenu, AiSetUp, Play, PauseMenu, Quit};
+public:
+	enum State { Loading, MainMenu, AiSetUp, Play, PauseMenu, ResultatPartie, Quit };
+private:
 	State state;
 	//Spinner
 	int SpinState;
@@ -27,6 +32,7 @@ class Jeu : public Drawable
 	NbAi nbAi;
 	//ressour
 public:
+	
 	RectangleShape background;
 	RectangleShape spinner;
 	Jeu();
