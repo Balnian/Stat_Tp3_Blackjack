@@ -29,11 +29,11 @@ JoueurIA::~JoueurIA()
 void JoueurIA::JouerTour()
 {
 	if (comptecarte)
-	if (CompteCarte())
-		jeu->piger();
+		if (CompteCarte())
+			AddCard(jeu->piger());
 	else
-	if (ComptePasCarte())
-		jeu->piger();
+		if (ComptePasCarte())
+			AddCard(jeu->piger());
 }
 bool JoueurIA::CompteCarte()
 {
