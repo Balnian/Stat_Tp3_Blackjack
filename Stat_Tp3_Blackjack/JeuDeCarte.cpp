@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 
+//prépare les données  pour créer les carte (chemin de l'image, Valeur de la carte)
 JeuDeCarte::JeuDeCarte()
 {
 
@@ -42,6 +43,7 @@ JeuDeCarte::~JeuDeCarte()
 {
 }
 
+//charge les cartes (images)
 void JeuDeCarte::loadResource()
 {
 	
@@ -53,19 +55,22 @@ void JeuDeCarte::loadResource()
 	random_shuffle(Paquet.begin(), Paquet.end());
 }
 
-Carte* JeuDeCarte::piger()
+//pige des cartes aléatoirement jusqu'à ce qu'il en trouve une qui n'a pas 
+// été piger dans le paquet
+Carte JeuDeCarte::piger()
 {
 	srand(time(NULL));
 	int piger;
 	while (Paquet.at(piger=(rand() % 52)).piger());
-	return &Paquet.at(piger);
+	return Paquet.at(piger);
 }
 
+//réinitialise le paquet de carte pour une nouvelle partie
 void JeuDeCarte::reinitialize()
 {
 	for each (Carte item in Paquet)
 	{
-		item.
+		item.reinitialize();
 	}
 	random_shuffle(Paquet.begin(), Paquet.end());
 }

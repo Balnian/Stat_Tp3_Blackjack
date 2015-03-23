@@ -17,7 +17,7 @@ public:
 	~JeuDeCarte();
 
 	void loadResource();
-	Carte* piger();
+	Carte piger();
 	void reinitialize();
 };
 
