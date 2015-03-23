@@ -82,12 +82,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Carte.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MenuPause.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Carte.h" />
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MenuPause.h" />
