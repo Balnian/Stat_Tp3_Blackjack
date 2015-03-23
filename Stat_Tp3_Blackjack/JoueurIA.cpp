@@ -44,8 +44,6 @@ bool JoueurIA::ComptePasCarte()
 	
 	int minValue;//valeur minimale pour que le compte depasse 21
 	int probability;
-	int i = 0;//va me permettre de boucler 3x pour les probabiliter de piger une face
-
 	if ((GetCompte() + 11) <= 21) // Peu importe la carte piger on ne depasse pas 21 donc on pige Sans se pauser de question
 		return true;
 	else
@@ -53,14 +51,10 @@ bool JoueurIA::ComptePasCarte()
 		minValue = 22 - GetCompte();
 
 		if (minValue != 1 && minValue != 11) //Si les valeur minimale pour depasser son 1 ou 11 il ne reste que la possibiliter de piger un as
-		while ( minValue != 10 && i != 3)
-		{			
-			if (minValue == 10)
-				i++;
-			else						
-				minValue++;
-			
-			probability += 4 / 52;
+		while ( minValue != 13)
+		{												
+			probability += (4 / 52);
+			minValue++;
 		}
 		else //les probabiliter son simplement les 4 as
 		   probability = 4 / 52;
