@@ -8,7 +8,8 @@ public:
 	~Joueur();
 private:
 	JeuDeCarte jeu;
-     
+	int Compte;
+
 
 };
 
