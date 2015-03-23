@@ -125,9 +125,13 @@ void Jeu::draw(RenderTarget& target, RenderStates states) const
 		target.draw(Menu);
 		break;
 	case Jeu::AiSetUp:
+		/*A implémenter*/
 		break;
 	case Jeu::Play:
 		target.draw(Partie);
+		break;
+	case Jeu::ResultatPartie:
+		/*A implémenter*/
 		break;
 	case Jeu::PauseMenu:
 		switch (Pause.getLastState())
@@ -139,9 +143,13 @@ void Jeu::draw(RenderTarget& target, RenderStates states) const
 			target.draw(Menu);
 			break;
 		case Jeu::AiSetUp:
+			/*A implémenter*/
 			break;
 		case Jeu::Play:
 			target.draw(Partie);
+			break;
+		case Jeu::ResultatPartie:
+			/*A implémenter*/
 			break;
 		default:
 			break;
