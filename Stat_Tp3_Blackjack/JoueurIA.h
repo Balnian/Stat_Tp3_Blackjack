@@ -14,8 +14,8 @@ public:
 	JoueurIA(bool comptecarte,TypeAI type);
 	~JoueurIA();
 	void JouerTour();
-	void CompteCarte();
-	void ComptePasCarte();
+	bool CompteCarte();
+	bool ComptePasCarte();
 private:
 	bool comptecarte;
 	int pourcentageForPlay;

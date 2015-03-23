@@ -29,15 +29,17 @@ JoueurIA::~JoueurIA()
 void JoueurIA::JouerTour()
 {
 	if (comptecarte)
-		CompteCarte();
+	if (CompteCarte())
+		jeu->piger();
 	else
-		ComptePasCarte();
+	if (ComptePasCarte())
+		jeu->piger();
 }
-void JoueurIA::CompteCarte()
+bool JoueurIA::CompteCarte()
 {
-	
+	return false;
 }
-void JoueurIA::ComptePasCarte()
+bool JoueurIA::ComptePasCarte()
 {
 	
 	int minValue;//valeur minimale pour que le compte depasse 21
@@ -45,7 +47,7 @@ void JoueurIA::ComptePasCarte()
 	int i = 0;//va me permettre de boucler 3x pour les probabiliter de piger une face
 
 	if ((GetCompte() + 11) <= 21) // Peu importe la carte piger on ne depasse pas 21 donc on pige Sans se pauser de question
-		jeu->piger();
+		return true;
 	else
 	{
 		minValue = 22 - GetCompte();
@@ -64,11 +66,9 @@ void JoueurIA::ComptePasCarte()
 		   probability = 4 / 52;
        // met les probabiliter en pourcentage avant de verifier si il est  > ou < ou = au pourcentage pour piger
 		if ((probability * 100) >= pourcentageForPlay)
-			  jeu->piger();
-		else
-		{
-			//Reste a savoir ce quon fait lorsquon ne pige pas
-		}
+			return true;
+		
+		return false;
 	}
 }
 
