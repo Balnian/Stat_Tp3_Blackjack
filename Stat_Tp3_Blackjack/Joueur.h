@@ -1,5 +1,5 @@
 #pragma once
-#include "JeuDeCarte.h";
+#include "JeuDeCarte.h"
 
 class Joueur
 {

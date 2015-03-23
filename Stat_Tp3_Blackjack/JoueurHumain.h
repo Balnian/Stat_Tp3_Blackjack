@@ -1,5 +1,5 @@
 #pragma once
-#include "Joueur.h";
+#include "Joueur.h"
 class JoueurHumain: public Joueur
 {
 public:
