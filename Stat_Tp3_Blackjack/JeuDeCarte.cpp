@@ -75,10 +75,21 @@ void JeuDeCarte::reinitialize()
 }
 int JeuDeCarte::CountNbCardPasPiger()
 {
-	int NbCartes;
+	int NbCartes = 0;
 	for (size_t i = 0; i < Paquet.size(); i++)
 	if (!Paquet.at(i).piger)
 		NbCartes++;
 
 	return NbCartes;
+}
+
+int JeuDeCarte::CountNbCarteSorte(int value)
+{
+   int nbCarte = 0;
+
+   for (size_t i = 0; i < Paquet.size(); i++)
+      if (Paquet.at(i).getValue() == value && !Paquet.at(i).piger())
+          nbCarte++;
+   
+   return nbCarte;
 }

@@ -37,33 +37,36 @@ void JoueurIA::JouerTour()
 }
 bool JoueurIA::CompteCarte()
 {
-	//int minValue;//valeur minimale pour que le compte depasse 21
-	//int probability;
-	//if ((GetCompte() + 11) <= 21) // Peu importe la carte piger on ne depasse pas 21 donc on pige Sans se pauser de question
-	//	return true;
-	//else
-	//{
-	//	minValue = 22 - GetCompte();
+   int minValue;//valeur minimale pour que le compte depasse 21
+   int probability;
+   if ((GetCompte() + 11) <= 21) // Peu importe la carte piger on ne depasse pas 21 donc on pige Sans se pauser de question
+      return true;
+   else
+   {
+      minValue = 22 - GetCompte();
 
-	//	if (minValue != 11) //Si les valeur minimale pour depasser est 11 il ne reste que la possibiliter de piger un as
-	//	while (minValue != 13)
-	//	{
-	//		probability += 4;
-	//		minValue++;
-	//	}
-	//	else //les probabiliter son simplement les 4 as
-	//		probability = 4;
-	//	// met les probabiliter en pourcentage avant de verifier si il est  > ou < ou = au pourcentage pour piger
-	//	if ((100 - ((probability / 52) * 100)) >= pourcentageForPlay)
-	//		return true;
+      if (minValue != 11) //Si les valeur minimale pour depasser est 11 il ne reste que la possibiliter de piger un as
+      while (minValue != 13)
+      {
+         if (minValue <= 10)
+         probability += jeu->CountNbCarteSorte(minValue);
+         else
+          probability += jeu->CountNbCarteSorte(10);
 
-	//	return false;		
-	//}
+         minValue++;
+      }
+      else //les probabiliter son simplement les 4 as
+         probability = 4;
+      // met les probabiliter en pourcentage avant de verifier si il est  > ou < ou = au pourcentage pour piger
+      if ((100 - ((probability / jeu->CountNbCardPasPiger()) * 100)) >= pourcentageForPlay)
+         return true;
+
+      return false;
+   }
 }
 
 bool JoueurIA::ComptePasCarte()
-{
-	
+{	
 	int minValue;//valeur minimale pour que le compte depasse 21
 	int probability;
 	if ((GetCompte() + 11) <= 21) // Peu importe la carte piger on ne depasse pas 21 donc on pige Sans se pauser de question

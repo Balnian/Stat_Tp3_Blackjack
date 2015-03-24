@@ -20,5 +20,6 @@ public:
 	Carte piger();
 	void reinitialize();
 	int CountNbCardPasPiger();
+   int CountNbCarteSorte(int value);
 };
 
