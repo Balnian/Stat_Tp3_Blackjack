@@ -5,5 +5,6 @@ class JoueurHumain: public Joueur
 public:
 	JoueurHumain();
 	~JoueurHumain();
+	void Piger();
 };
 

@@ -11,6 +11,7 @@ Joueur::~Joueur()
 
 void Joueur::reinitialize()
 {
+	jeu->reinitialize();
 }
 
 int  Joueur::GetCompte()
@@ -33,8 +34,7 @@ void  Joueur::AddCard(Carte card)
 }
 bool Joueur::Busted()
 {
-
-
+	return GetCompte() > 21 ? true : false;
 }
 
 void Joueur::draw(RenderTarget& target, RenderStates states) const
