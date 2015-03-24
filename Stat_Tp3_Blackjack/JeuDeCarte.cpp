@@ -45,8 +45,7 @@ JeuDeCarte::~JeuDeCarte()
 
 //charge les cartes (images)
 void JeuDeCarte::loadResource()
-{
-	
+{	
 	for each (ValeurCarte val in Valeurs)
 	{
 		Paquet.emplace_back(val.Value);
@@ -58,7 +57,7 @@ void JeuDeCarte::loadResource()
 //pige des cartes aléatoirement jusqu'à ce qu'il en trouve une qui n'a pas 
 // été piger dans le paquet
 Carte JeuDeCarte::piger()
-{
+{	
 	srand(time(NULL));
 	int piger;
 	while (Paquet.at(piger=(rand() % 52)).piger());
@@ -73,4 +72,13 @@ void JeuDeCarte::reinitialize()
 		item.reinitialize();
 	}
 	random_shuffle(Paquet.begin(), Paquet.end());
+}
+int JeuDeCarte::CountNbCardPasPiger()
+{
+	int NbCartes;
+	for (size_t i = 0; i < Paquet.size(); i++)
+	if (!Paquet.at(i).piger)
+		NbCartes++;
+
+	return NbCartes;
 }

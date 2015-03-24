@@ -19,5 +19,6 @@ public:
 	void loadResource();
 	Carte piger();
 	void reinitialize();
+	int CountNbCardPasPiger();
 };
 
