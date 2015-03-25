@@ -46,7 +46,11 @@ void MenuPause::draw(RenderTarget& target, RenderStates states) const
 
 void MenuPause::loadResource()
 {
+	Tex_MainMenu.loadFromFile("Images/Pause/MainMenu.png");
+	Tex_MainMenu_Selected.loadFromFile("Images/Pause/MainMenu_Selected.png");
 
+	Tex_Quitter.loadFromFile("Images/Commun/Quitter.png");
+	Tex_Quitter.loadFromFile("Images/Commun/Quitter_Selected.png");
 }
 
 void MenuPause::setLastState(Jeu::State State)
