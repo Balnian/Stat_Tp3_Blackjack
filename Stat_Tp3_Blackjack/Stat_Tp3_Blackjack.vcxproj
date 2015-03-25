@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AiSetUp.cpp" />
     <ClCompile Include="Carte.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="JeuDeCarte.cpp" />
@@ -94,6 +95,7 @@
     <ClCompile Include="Partie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AiSetUp.h" />
     <ClInclude Include="Carte.h" />
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="JeuDeCarte.h" />

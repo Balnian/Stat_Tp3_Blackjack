@@ -67,14 +67,17 @@ void Jeu::UpdateState(Window &window)
 		case Jeu::AiSetUp:
 			switch (nbAi)
 			{
-			case Zero:
-
-				break;
 			case Un:
+				Joueurs.emplace_back(new JoueurHumain());
+				Joueurs.emplace_back(new JoueurIA());
 				break;
 			case Deux:
+				Joueurs.emplace_back(new JoueurIA());
+				Joueurs.emplace_back(new JoueurIA());
 				break;
 			default:
+				Joueurs.emplace_back(new JoueurHumain());
+				Joueurs.emplace_back(new JoueurHumain());
 				break;
 			}
 			break;
