@@ -4,12 +4,14 @@
 #include "MainMenu.h"
 #include "MenuPause.h"
 #include "Partie.h"
+#include "JoueurIA.h"
+#include "JoueurHumain.h"
 
 using namespace sf;
 
 class Jeu : public Drawable
 {
-
+	vector<Joueur> Joueurs;
 	//Texture / Resources
 	Texture backgroundImg;
 	Texture spinnerImg;
@@ -28,7 +30,7 @@ private:
 	int SpinState;
 	int access;
 	//Ai
-	enum NbAi {Un, Deux};
+	enum NbAi {Zero, Un, Deux};
 	NbAi nbAi;
 	//ressour
 public:

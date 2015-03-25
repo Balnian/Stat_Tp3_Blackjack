@@ -47,7 +47,12 @@ void Jeu::UpdateState(Window &window)
 			break;
 		case Jeu::MainMenu:
 			Menu.UpdateState(Mouse::getPosition(window));
-			if (event.mouseButton.button == Mouse::Right && Menu.state == Menu.MouseHover_JVA)
+			if (event.mouseButton.button == Mouse::Right && Menu.state == Menu.MouseHover_JVJ)
+			{
+				state = AiSetUp;
+				nbAi = Zero;
+			}
+			else if (event.mouseButton.button == Mouse::Right && Menu.state == Menu.MouseHover_JVA)
 			{
 				state = AiSetUp;
 				nbAi = Un;
@@ -60,6 +65,18 @@ void Jeu::UpdateState(Window &window)
 
 			break;
 		case Jeu::AiSetUp:
+			switch (nbAi)
+			{
+			case Zero:
+
+				break;
+			case Un:
+				break;
+			case Deux:
+				break;
+			default:
+				break;
+			}
 			break;
 		case Jeu::Play:
 			Partie.UpdateState(Mouse::getPosition(window));
