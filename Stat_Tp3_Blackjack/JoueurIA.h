@@ -18,7 +18,8 @@ public:
 	bool ComptePasCarte();
 private:
 	bool comptecarte;
-	int pourcentageForPlay;
+	int pourcentageForPlay;	
+	
     
 };
 
