@@ -19,7 +19,7 @@ void Partie::UpdateState(Vector2i Cursor)
 		break;
 	case TourJoueur2:
 		break;
-	default:
+
 
 	default:
 		break;

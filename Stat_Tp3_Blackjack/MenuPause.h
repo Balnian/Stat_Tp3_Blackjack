@@ -18,8 +18,8 @@ class MenuPause : public Drawable
 
 	Jeu::State LastState;
 public:
-	enum State { MouseHover_MainMenu, MouseHover_Quitter, None };
-	State state;
+	enum Statep { MouseHover_MainMenu, MouseHover_Quitter, None };
+	Statep state;
 	MenuPause();
 	~MenuPause();
 	void UpdateState(Vector2i Cursor);
