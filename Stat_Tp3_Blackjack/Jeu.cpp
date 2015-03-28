@@ -69,11 +69,11 @@ void Jeu::UpdateState(Window &window)
 			{
 			case Un:
 				Joueurs.emplace_back(new JoueurHumain());
-				Joueurs.emplace_back(new JoueurIA());
+				//Joueurs.emplace_back(new JoueurIA());
 				break;
 			case Deux:
-				Joueurs.emplace_back(new JoueurIA());
-				Joueurs.emplace_back(new JoueurIA());
+				//Joueurs.emplace_back(new JoueurIA());
+				//Joueurs.emplace_back(new JoueurIA());
 				break;
 			default:
 				Joueurs.emplace_back(new JoueurHumain());
@@ -110,11 +110,11 @@ void Jeu::UpdateState(Window &window)
 			{
 				if (state == PauseMenu)
 				{
-					state = Pause.getLastState();
+					state = LastState;
 				}
 				else
 				{
-					Pause.setLastState(state);
+					LastState = state;
 					state = PauseMenu;
 				}
 				noRepeat = false;
@@ -154,7 +154,7 @@ void Jeu::draw(RenderTarget& target, RenderStates states) const
 		/*A implémenter*/
 		break;
 	case Jeu::PauseMenu:
-		switch (Pause.getLastState())
+		switch (LastState)
 		{
 		case Jeu::Loading:
 			target.draw(spinner);
@@ -199,5 +199,6 @@ void Jeu::LoadResources()
 {	
 	Menu.loadResource();
 	Partie.loadResource();
+	Paquet.loadResource();
 	state = MainMenu;	
 }

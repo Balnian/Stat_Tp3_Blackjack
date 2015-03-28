@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Jeu.h"
+
 using namespace sf;
 
 class MenuPause : public Drawable
@@ -16,16 +16,13 @@ class MenuPause : public Drawable
 	RectangleShape Bt_MainMenu;
 	RectangleShape Bt_Quitter;
 
-	Jeu::State LastState;
 public:
-	enum Statep { MouseHover_MainMenu, MouseHover_Quitter, None };
-	Statep state;
+	enum State { MouseHover_MainMenu, MouseHover_Quitter, None };
+	State state;
 	MenuPause();
 	~MenuPause();
 	void UpdateState(Vector2i Cursor);
 	virtual void draw(RenderTarget& target, RenderStates states) const;
 	void loadResource();
-	void setLastState(Jeu::State State);
-	Jeu::State getLastState()const;
 };
 

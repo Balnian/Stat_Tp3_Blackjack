@@ -77,7 +77,7 @@ int JeuDeCarte::CountNbCardPasPiger()
 {
 	int NbCartes = 0;
 	for (size_t i = 0; i < Paquet.size(); i++)
-	if (!Paquet.at(i).piger)
+	if (!Paquet.at(i).piger())
 		NbCartes++;
 
 	return NbCartes;

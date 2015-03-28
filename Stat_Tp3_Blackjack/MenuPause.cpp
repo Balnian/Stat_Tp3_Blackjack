@@ -52,12 +52,3 @@ void MenuPause::loadResource()
 	Tex_Quitter.loadFromFile("Images/Commun/Quitter.png");
 	Tex_Quitter.loadFromFile("Images/Commun/Quitter_Selected.png");
 }
-
-void MenuPause::setLastState(Jeu::State State)
-{
-	LastState = State;
-}
-Jeu::State MenuPause::getLastState()const
-{
-	return LastState;
-}

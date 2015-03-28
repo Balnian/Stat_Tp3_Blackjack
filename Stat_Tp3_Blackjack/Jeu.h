@@ -4,6 +4,7 @@
 #include "MenuPrincipal.h"
 #include "MenuPause.h"
 #include "Partie.h"
+#include "JeuDeCarte.h"
 #include "JoueurIA.h"
 #include "JoueurHumain.h"
 
@@ -11,6 +12,7 @@ using namespace sf;
 
 class Jeu : public Drawable
 {
+	JeuDeCarte Paquet;
 	vector<Joueur*> Joueurs;
 	//Texture / Resources
 	Texture backgroundImg;
@@ -26,6 +28,7 @@ public:
 	enum State { Loading, MainMenu, AiSetUp, Play, PauseMenu, ResultatPartie, Quit };
 private:
 	State state;
+	State LastState;
 	//Spinner
 	int SpinState;
 	int access;
