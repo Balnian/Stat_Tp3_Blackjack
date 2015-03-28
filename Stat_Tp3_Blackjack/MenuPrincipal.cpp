@@ -1,18 +1,18 @@
-#include "MainMenu.h"
+#include "MenuPrincipal.h"
 
 
-MainMenu::MainMenu()
+MenuPrincipal::MenuPrincipal()
 {
 	state = None;
 	
 }
 
 
-MainMenu::~MainMenu()
+MenuPrincipal::~MenuPrincipal()
 {
 }
 
-void MainMenu::UpdateState(Vector2i Cursor)
+void MenuPrincipal::UpdateState(Vector2i Cursor)
 {
 	if (Bt_JVsJ.getGlobalBounds().contains((Vector2f)Cursor))
 	{
@@ -56,7 +56,7 @@ void MainMenu::UpdateState(Vector2i Cursor)
 	}
 }
 
-void MainMenu::draw(RenderTarget& target, RenderStates states) const
+void MenuPrincipal::draw(RenderTarget& target, RenderStates states) const
 {
 	
 	
@@ -67,7 +67,7 @@ void MainMenu::draw(RenderTarget& target, RenderStates states) const
 
 }
 
-void MainMenu::loadResource()
+void MenuPrincipal::loadResource()
 {
 	Tex_JVsJ.loadFromFile("Images/Menu/J_VS_J.png");
 	Tex_JVsJ_Selected.loadFromFile("Images/Menu/J_VS_J_Selected.png");

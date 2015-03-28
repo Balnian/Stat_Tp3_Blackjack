@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "MainMenu.h"
+#include "MenuPrincipal.h"
 #include "MenuPause.h"
 #include "Partie.h"
 #include "JoueurIA.h"
@@ -18,7 +18,7 @@ class Jeu : public Drawable
 	Thread Loader;
 	bool ResourcesLoaded;
 	//Object State
-	MainMenu Menu;
+	MenuPrincipal Menu;
 	MenuPause Pause;
 	Partie Partie;
 	//State

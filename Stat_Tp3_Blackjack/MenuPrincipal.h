@@ -4,7 +4,7 @@
 
 using namespace sf;
 
-class MainMenu : public Drawable
+class MenuPrincipal : public Drawable
 {
 	Texture Tex_JVsJ;
 	Texture Tex_JVsJ_Selected;
@@ -24,8 +24,8 @@ class MainMenu : public Drawable
 public:
 	enum State {MouseHover_JVJ,MouseHover_JVA,MouseHover_AVA,None};
 	State state;
-	MainMenu();
-	~MainMenu();
+	MenuPrincipal();
+	~MenuPrincipal();
 	void UpdateState(Vector2i Cursor);
 	virtual void draw(RenderTarget& target, RenderStates states) const;
 	void loadResource();

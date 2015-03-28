@@ -90,7 +90,7 @@
     <ClCompile Include="JoueurHumain.cpp" />
     <ClCompile Include="JoueurIA.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="MenuPause.cpp" />
     <ClCompile Include="Partie.cpp" />
   </ItemGroup>
@@ -102,7 +102,7 @@
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="JoueurHumain.h" />
     <ClInclude Include="JoueurIA.h" />
-    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="MenuPause.h" />
     <ClInclude Include="Partie.h" />
   </ItemGroup>
