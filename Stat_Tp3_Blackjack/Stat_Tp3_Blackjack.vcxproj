@@ -97,6 +97,7 @@
   <ItemGroup>
     <ClInclude Include="AiSetUp.h" />
     <ClInclude Include="Carte.h" />
+    <ClInclude Include="Icon.h" />
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="JeuDeCarte.h" />
     <ClInclude Include="Joueur.h" />

@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Jeu.h"
+#include "Icon.h"
 ///*a supprimer*/#include "JeuDeCarte.h"
 using namespace sf;
 
@@ -7,7 +8,7 @@ int main()
 {
 	Jeu BlackJack;
 	RenderWindow window(VideoMode(1200, 700), "BlackJack",Style::Titlebar | Style::Close);
-
+	window.setIcon(Icon_Blackjack.width, Icon_Blackjack.height, Icon_Blackjack.pixel_data);
 	VertexArray Overlay(Quads, 4);
 	Overlay[0].position = Vector2f(0, 0);
 	Overlay[1].position = Vector2f(1200, 0);
