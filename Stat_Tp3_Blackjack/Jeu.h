@@ -7,13 +7,14 @@
 #include "JeuDeCarte.h"
 #include "JoueurIA.h"
 #include "JoueurHumain.h"
+#include "AiSetUp.h"
 
 using namespace sf;
 
 class Jeu : public Drawable
 {
 	JeuDeCarte Paquet;
-	vector<Joueur*> Joueurs;
+	vector<Joueur> Joueurs;
 	//Texture / Resources
 	Texture backgroundImg;
 	Texture spinnerImg;
@@ -23,6 +24,7 @@ class Jeu : public Drawable
 	MenuPrincipal Menu;
 	MenuPause Pause;
 	Partie Partie;
+	AiSetUp MenuAi;
 	//State
 public:
 	enum State { Loading, MainMenu, AiSetUp, Play, PauseMenu, ResultatPartie, Quit };
@@ -33,8 +35,7 @@ private:
 	int SpinState;
 	int access;
 	//Ai
-	enum NbAi {Zero, Un, Deux};
-	NbAi nbAi;
+	AiSetUp::NbAI nbAi;
 	//ressour
 public:
 	

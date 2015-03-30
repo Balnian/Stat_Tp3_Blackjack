@@ -16,7 +16,7 @@ int main()
 	Overlay[3].position = Vector2f(0, 700);
 	srand(time(NULL));
 	window.setFramerateLimit(60);
-	window.setKeyRepeatEnabled(false);
+	//window.setKeyRepeatEnabled(false);
 	while (window.isOpen() && BlackJack.IsAlive())
 	{
 		

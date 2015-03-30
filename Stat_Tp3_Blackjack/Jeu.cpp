@@ -23,10 +23,12 @@ Jeu::Jeu() :ResourcesLoaded(false), Loader(&Jeu::LoadResources,this)
 
 void Jeu::UpdateState(Window &window)
 {
-	
+
 	Event event;
 	while (window.pollEvent(event))
-	{
+	{	
+
+	
 		switch (state)
 		{
 		case Jeu::Loading:
@@ -47,54 +49,90 @@ void Jeu::UpdateState(Window &window)
 			break;
 		case Jeu::MainMenu:
 			Menu.UpdateState(Mouse::getPosition(window));
-			if (event.mouseButton.button == Mouse::Right && Menu.state == Menu.MouseHover_JVJ)
+			if (event.mouseButton.button == Mouse::Left && Menu.state == Menu.MouseHover_JVJ && event.type == Event::MouseButtonReleased)
 			{
 				state = AiSetUp;
-				nbAi = Zero;
+				nbAi = AiSetUp::NbAI::Zero;
+				MenuAi.setNombre(nbAi);
 			}
-			else if (event.mouseButton.button == Mouse::Right && Menu.state == Menu.MouseHover_JVA)
+			else if (event.mouseButton.button == Mouse::Left && Menu.state == Menu.MouseHover_JVA && event.type == Event::MouseButtonReleased)
 			{
 				state = AiSetUp;
-				nbAi = Un;
+				nbAi = AiSetUp::NbAI::Un;
+				MenuAi.setNombre(nbAi);
 			}
-			else if (event.mouseButton.button == Mouse::Right && Menu.state == Menu.MouseHover_AVA)
+			else if (event.mouseButton.button == Mouse::Left && Menu.state == Menu.MouseHover_AVA && event.type == Event::MouseButtonReleased)
 			{
 				state = AiSetUp;
-				nbAi = Deux;
+				nbAi = AiSetUp::NbAI::Deux;
+				MenuAi.setNombre(nbAi);
 			}
 
 			break;
 		case Jeu::AiSetUp:
-			switch (nbAi)
+
+			if (nbAi == AiSetUp::NbAI::Zero)
 			{
-			case Un:
-				Joueurs.emplace_back(new JoueurHumain());
-				//Joueurs.emplace_back(new JoueurIA());
-				break;
-			case Deux:
-				//Joueurs.emplace_back(new JoueurIA());
-				//Joueurs.emplace_back(new JoueurIA());
-				break;
-			default:
-				Joueurs.emplace_back(new JoueurHumain());
-				Joueurs.emplace_back(new JoueurHumain());
-				break;
+				Joueurs.emplace_back( JoueurHumain());
+				Joueurs.emplace_back( JoueurHumain());
+				state = Play;
 			}
+			MenuAi.UpdateState(Mouse::getPosition(window));
+			for (size_t i = 0; i < nbAi; i++)
+			{
+				if (event.mouseButton.button == Mouse::Left && MenuAi.State[i] == AiSetUp::BtDifState::MouseHover_Continuer && event.type == Event::MouseButtonReleased)
+				{
+					switch (nbAi)
+					{
+					case AiSetUp::NbAI::Un:
+						Joueurs.emplace_back(JoueurHumain());
+						Joueurs.emplace_back(MenuAi.getSetUp(AiSetUp::NbAI::Un));
+						break;
+					case AiSetUp::NbAI::Deux:
+						Joueurs.emplace_back(MenuAi.getSetUp(AiSetUp::NbAI::Un));
+						Joueurs.emplace_back(MenuAi.getSetUp(AiSetUp::NbAI::Deux));
+						break;
+					default:
+						Joueurs.emplace_back(JoueurHumain());
+						Joueurs.emplace_back(JoueurHumain());
+						break;
+					}
+					state = Play;
+				}
+				else if (event.mouseButton.button == Mouse::Left && MenuAi.State[i] == AiSetUp::BtDifState::MouseHover_Compte && event.type == Event::MouseButtonReleased)
+				{
+					MenuAi.Compte[i] = !MenuAi.Compte[i];
+				}
+				else if (event.mouseButton.button == Mouse::Left && MenuAi.State[i] == AiSetUp::BtDifState::MouseHover_Courageux && event.type == Event::MouseButtonReleased)
+				{
+					MenuAi.Choix[i] = JoueurIA::TypeAI::courageux;
+				}
+				else if (event.mouseButton.button == Mouse::Left && MenuAi.State[i] == AiSetUp::BtDifState::MouseHover_Moyen && event.type == Event::MouseButtonReleased)
+				{
+					MenuAi.Choix[i] = JoueurIA::TypeAI::moyen;
+				}
+				else if (event.mouseButton.button == Mouse::Left && MenuAi.State[i] == AiSetUp::BtDifState::MouseHover_Prudent && event.type == Event::MouseButtonReleased)
+				{
+					MenuAi.Choix[i] = JoueurIA::TypeAI::prudent;
+				}
+			}
+			
+			
 			break;
 		case Jeu::Play:
 			Partie.UpdateState(Mouse::getPosition(window));
 			break;
 		case Jeu::PauseMenu:
 			Pause.UpdateState(Mouse::getPosition(window));
-			if (event.mouseButton.button == Mouse::Right && Menu.state == Pause.MouseHover_Continuer)
+			if (event.mouseButton.button == Mouse::Left && Pause.state == Pause.MouseHover_Continuer && event.type == Event::MouseButtonReleased)
 			{
 				state = LastState;
 			}
-			if (event.mouseButton.button == Mouse::Right && Menu.state == Pause.MouseHover_MainMenu)
+			if (event.mouseButton.button == Mouse::Left && Pause.state == Pause.MouseHover_MainMenu && event.type == Event::MouseButtonReleased)
 			{
 				state = MainMenu;
 			}
-			else if (event.mouseButton.button == Mouse::Right && Pause.state == Pause.MouseHover_Quitter)
+			else if (event.mouseButton.button == Mouse::Left && Pause.state == Pause.MouseHover_Quitter && event.type == Event::MouseButtonReleased)
 			{
 				state = Quit;
 			}
@@ -132,6 +170,7 @@ void Jeu::UpdateState(Window &window)
 
 		if (event.type == Event::Closed)
 			state = Quit;
+
 	}
 
 }
@@ -149,7 +188,7 @@ void Jeu::draw(RenderTarget& target, RenderStates states) const
 		target.draw(Menu);
 		break;
 	case Jeu::AiSetUp:
-		/*A implémenter*/
+		target.draw(MenuAi);
 		break;
 	case Jeu::Play:
 		target.draw(Partie);
@@ -167,7 +206,7 @@ void Jeu::draw(RenderTarget& target, RenderStates states) const
 			target.draw(Menu);
 			break;
 		case Jeu::AiSetUp:
-			/*A implémenter*/
+			target.draw(MenuAi);
 			break;
 		case Jeu::Play:
 			target.draw(Partie);
@@ -203,6 +242,7 @@ void Jeu::LoadResources()
 {	
 	Menu.loadResource();
 	Pause.loadResource();
+	MenuAi.loadResource();
 	Partie.loadResource();
 	Paquet.loadResource();
 	state = MainMenu;	
