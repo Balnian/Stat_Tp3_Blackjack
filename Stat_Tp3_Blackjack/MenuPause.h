@@ -7,17 +7,22 @@ using namespace sf;
 class MenuPause : public Drawable
 {
 	VertexArray Overlay;
+
+	Texture Tex_Continuer;
+	Texture Tex_Continuer_Selected;
+
 	Texture Tex_MainMenu;
 	Texture Tex_MainMenu_Selected;
 
 	Texture Tex_Quitter;
 	Texture Tex_Quitter_Selected;
 
+	RectangleShape Bt_Continuer;
 	RectangleShape Bt_MainMenu;
 	RectangleShape Bt_Quitter;
 
 public:
-	enum State { MouseHover_MainMenu, MouseHover_Quitter, None };
+	enum State { MouseHover_Continuer, MouseHover_MainMenu, MouseHover_Quitter, None };
 	State state;
 	MenuPause();
 	~MenuPause();

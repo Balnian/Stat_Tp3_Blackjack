@@ -86,6 +86,10 @@ void Jeu::UpdateState(Window &window)
 			break;
 		case Jeu::PauseMenu:
 			Pause.UpdateState(Mouse::getPosition(window));
+			if (event.mouseButton.button == Mouse::Right && Menu.state == Pause.MouseHover_Continuer)
+			{
+				state = LastState;
+			}
 			if (event.mouseButton.button == Mouse::Right && Menu.state == Pause.MouseHover_MainMenu)
 			{
 				state = MainMenu;
@@ -198,6 +202,7 @@ bool Jeu::IsAlive()
 void Jeu::LoadResources()
 {	
 	Menu.loadResource();
+	Pause.loadResource();
 	Partie.loadResource();
 	Paquet.loadResource();
 	state = MainMenu;	
