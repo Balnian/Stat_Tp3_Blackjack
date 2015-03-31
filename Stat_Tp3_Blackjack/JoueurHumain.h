@@ -5,6 +5,7 @@ class JoueurHumain: public Joueur
 public:
 	JoueurHumain();
 	~JoueurHumain();
-	void Piger();
+	virtual void JouerTour(JeuDeCarte* jeuc);
+	void Piger(Carte* card);
 };
 

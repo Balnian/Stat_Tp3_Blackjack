@@ -14,7 +14,7 @@ using namespace sf;
 class Jeu : public Drawable
 {
 	JeuDeCarte Paquet;
-	vector<Joueur> Joueurs;
+	vector<Joueur*> Joueurs;
 	//Texture / Resources
 	Texture backgroundImg;
 	Texture spinnerImg;

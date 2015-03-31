@@ -20,14 +20,31 @@ public:
 			EtatBt = etatBt;
 		}
 	};
-private:
-	JeuDeCarte Paquet;
 	State Etat;
 	BtState EtatBt;
+private:
+	bool GenreJoueur;
+
+	Texture Tex_J[2];
+
+	Texture Tex_Prendre;
+	Texture Tex_Prendre_Selected;
+
+	Texture Tex_Continuer;
+	Texture Tex_Continuer_Selected;
+
+	RectangleShape J;
+	RectangleShape Bt_Prendre;
+	RectangleShape Bt_Continuer;
+
+
+
+	JeuDeCarte Paquet;
+	
 public:
 	Partie();
 	~Partie();
-	void UpdateState(Vector2i Cursor);
+	void UpdateState(Vector2i Cursor, bool j1, bool j2);
 	virtual void draw(RenderTarget& target, RenderStates states) const;
 	void loadResource();
 	StateInfo getState();

@@ -11,7 +11,7 @@ public:
 	enum TypeAI{courageux,moyen,prudent};
 	JoueurIA(bool comptecarte,TypeAI type);
 	~JoueurIA();
-	void JouerTour();
+	void JouerTour(JeuDeCarte* jeuc);
 	bool CompteCarte();
 	bool ComptePasCarte();
 private:

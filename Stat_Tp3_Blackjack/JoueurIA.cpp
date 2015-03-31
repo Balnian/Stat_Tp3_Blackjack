@@ -3,6 +3,7 @@
 
 JoueurIA::JoueurIA(bool comptecarte , TypeAI type)
 {
+	setIa();
 	//Initialisation de IA savoir si elle doit compter les carte ou non et de quelle type elle est
 	JoueurIA::comptecarte = comptecarte;
 
@@ -26,14 +27,21 @@ JoueurIA::~JoueurIA()
 {
 }
 
-void JoueurIA::JouerTour()
+
+
+void JoueurIA::JouerTour(JeuDeCarte* jeuc)
 {
+	std::cout << "Ai" << endl;
+	this->jeu = jeuc;
 	if (comptecarte)
+	{
 		if (CompteCarte())
-			AddCard(jeu->piger());
+			AddCard(&jeu->piger());
+	}
+		
 	else
 		if (ComptePasCarte())
-			AddCard(jeu->piger());
+			AddCard(&jeu->piger());
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool JoueurIA::CompteCarte()

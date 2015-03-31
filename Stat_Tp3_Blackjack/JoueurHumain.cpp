@@ -1,5 +1,5 @@
 #include "JoueurHumain.h"
-
+#include <iostream>
 
 JoueurHumain::JoueurHumain()
 {
@@ -8,7 +8,14 @@ JoueurHumain::~JoueurHumain()
 {
 }
 
-void JoueurHumain::Piger()
+void JoueurHumain::JouerTour(JeuDeCarte* jeuc)
 {
-	AddCard(jeu->piger());	
+	std::cout << "Hum" << endl;
+	this->jeu = jeuc;
+	AddCard(&jeuc->piger());
+}
+
+void JoueurHumain::Piger(Carte* card)
+{
+	AddCard(card);
 }
